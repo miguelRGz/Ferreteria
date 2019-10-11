@@ -28,6 +28,14 @@
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Ferreteriapro\src\app\components\" />
+    <Folder Include="Ferreteria\src\app\models\" />
+    <Folder Include="Ferreteria\src\app\directives\" />
+    <Folder Include="Ferreteria\src\app\pipes\" />
+    <Folder Include="Ferreteria\src\app\services\" />
+  </ItemGroup>
+
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
@@ -55,6 +63,6 @@
     </ItemGroup>
   </Target>
 
-  <ProjectExtensions><VisualStudio><UserProperties ferreteria_4angular_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions><VisualStudio><UserProperties ferreteria_4angular_1json__JsonSchema="" ferreteriapro_4package_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 
 </Project>
