@@ -6,6 +6,15 @@ import { HttpModule } from '@angular/http';
 import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import localeMX from '@angular/common/locales/es-MX';
+import { MatTreeModule } from '@angular/material';
+import { DataTablesModule } from 'angular-datatables';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatVideoModule } from 'mat-video';
+
+registerLocaleData(localeMX, 'es-MX');
 import {
     MatAutocompleteModule,
     MatButtonModule,
@@ -37,6 +46,7 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatStepperModule,
+    MAT_DIALOG_DEFAULT_OPTIONS
 } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
@@ -49,6 +59,10 @@ import { NavbarModule } from './shared/navbar/navbar.module';
 import { FixedpluginModule } from './shared/fixedplugin/fixedplugin.module';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { JwtInterceptor } from './security/helper/jwt.interceptor';
+import { ErrorInterceptor } from './security/helper/error.interceptor';
+import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 
 @NgModule({
     exports: [
@@ -82,8 +96,11 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
         MatTableModule,
         MatTabsModule,
         MatToolbarModule,
-        MatTooltipModule
-    ]
+        MatTooltipModule,
+        NgxPaginationModule,
+        MatVideoModule
+    ],
+    declarations: []
 })
 export class MaterialModule { }
 
@@ -91,7 +108,8 @@ export class MaterialModule { }
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    PaginaErrorComponent
   ],
     imports: [
       CommonModule,
@@ -105,7 +123,11 @@ export class MaterialModule { }
       SidebarModule,
       NavbarModule,
       FooterModule,
-      FixedpluginModule
+      FixedpluginModule,
+      NgxPaginationModule,
+      MatTreeModule,
+      DataTablesModule,
+      NgxMatSelectSearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]

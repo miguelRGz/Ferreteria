@@ -5,7 +5,15 @@ import { AuthLayoutComponent } from './layouts/auth/auth-layout.component';
 
 
 const routes: Routes = [
-    { path: '', component: AdminLayoutComponent },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full', },
+    {
+        path: '', component: AdminLayoutComponent,
+        children:
+            [
+                { path: '', loadChildren: './dashboard/dashboard.module#DashboardModule' },
+                { path: 'gestion-usuario', loadChildren:'./gestion-usuario/gestion-usuario.module#GestionUsuarioModule'}
+            ]
+    },
     //{ path: '', component: AuthLayoutComponent }
 ];
 

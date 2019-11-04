@@ -1,12 +1,13 @@
 <div class="wrapper">
-  <div class="sidebar">
-    <div>holis</div>
+  <div class="sidebar" data-color="azure" data-background-color="black" data-image="./assets/img/Urahara.jpg">
+    <app-sidebar-cmp></app-sidebar-cmp>
+    <div class="sidebar-background" style="background-image: url(./assets/img/Urahara.jpg)"></div>
   </div>
-  <div>
-    <!--<app-navbar-cmp></app-navbar-cmp>-->
+  <div class="main-panel" style="background-image: url('./assets/img/261802.jpg'); background-size: cover; background-position: top center;">
+    <app-navbar-cmp></app-navbar-cmp>
     <router-outlet></router-outlet>
-    <div>
-
+    <div *ngIf="!isMap()">
+      <!--<app-footer-cmp></app-footer-cmp>-->
     </div>
   </div>
   <!--<app-fixedplugin></app-fixedplugin>-->
