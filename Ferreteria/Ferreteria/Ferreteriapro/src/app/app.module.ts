@@ -49,6 +49,8 @@ import {
     MAT_DIALOG_DEFAULT_OPTIONS
 } from '@angular/material';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { TreeTableModule } from 'primeng/treetable';
+import { TreeNode } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,6 +65,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { JwtInterceptor } from './security/helper/jwt.interceptor';
 import { ErrorInterceptor } from './security/helper/error.interceptor';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
+import { NodeService } from './services/node.service'
 
 @NgModule({
     exports: [
@@ -98,7 +101,8 @@ import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
         MatToolbarModule,
         MatTooltipModule,
         NgxPaginationModule,
-        MatVideoModule
+        MatVideoModule,
+        TreeTableModule
     ],
     declarations: []
 })
@@ -127,9 +131,11 @@ export class MaterialModule { }
       NgxPaginationModule,
       MatTreeModule,
       DataTablesModule,
-      NgxMatSelectSearchModule
+        NgxMatSelectSearchModule,
+        TreeTableModule,
+        HttpClientModule
   ],
-  providers: [],
+  providers: [NodeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,4 +4,8 @@
   background: transparent;
 }
 
+.backdropBackground {
+  background-color: blue;
+}
+
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';

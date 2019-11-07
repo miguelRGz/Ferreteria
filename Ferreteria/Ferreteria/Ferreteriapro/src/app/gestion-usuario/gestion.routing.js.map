@@ -1,0 +1,1 @@
+{"version":3,"file":"gestion.routing.js","sourceRoot":"","sources":["gestion.routing.ts"],"names":[],"mappings":";;AACA,yEAAsE;AAEzD,QAAA,cAAc,GAAW;IAClC;QAEI,IAAI,EAAE,EAAE;QACR,QAAQ,EAAE,CAAC;gBACP,IAAI,EAAE,EAAE;gBACR,SAAS,EAAE,mDAAuB;aACrC,CAAC;KACL;CACJ,CAAC"}

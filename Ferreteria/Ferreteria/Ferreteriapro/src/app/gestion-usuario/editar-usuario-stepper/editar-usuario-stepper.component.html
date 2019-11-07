@@ -1,0 +1,47 @@
+
+<!--<mat-horizontal-stepper>
+  <mat-step label="Step 1">
+    Content 1
+  </mat-step>
+  <mat-step label="Step 2">
+    Content 2
+  </mat-step>
+</mat-horizontal-stepper>-->
+
+<!--<p-treeTable [value]="files">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Size</th>
+      <th>Type</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+    <tr>
+      <td>
+        <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+        {{rowData.name}}
+      </td>
+      <td>{{rowData.size}}</td>
+      <td>{{rowData.type}}</td>
+    </tr>
+  </ng-template>
+</p-treeTable>-->
+
+<p-treeTable [value]="files" [columns]="cols">
+  <ng-template pTemplate="header" let-columns>
+    <tr [ttRow]="rowNode">
+      <th *ngFor="let col of columns">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowNode let-rowData="rowData" let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns; let i = index">
+        <p-treeTableToggler [rowNode]="rowNode" *ngIf="i == 0"></p-treeTableToggler>
+        {{rowData[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-treeTable>
