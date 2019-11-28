@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "data": {
+        "nombre": "Almacen",
+        "extra": "asbc",
+        "permisos": [ "CONSULTA", "OPERACION", "ADMIN", "AUTORIZA" ],
+        "children": [
+          {
+            "nombre": "Almacen2",
+            "extra": "hgftr",
+            "permisos": [ "CONSULTA", "ADMIN", "AUTORIZA" ],
+          },
+          {
+            "nombre": "Almacen3",
+            "extra": "wewet",
+            "permisos": [ "CONSULTA", "OPERACION", "AUTORIZA" ],
+          }
+        ]
+      }
+    }
+  ]
+
+}

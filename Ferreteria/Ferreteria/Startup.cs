@@ -1,3 +1,5 @@
+using Ferreteria.Models;
+using Ferreteria.Servicios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -5,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace Ferreteria
 {
@@ -27,6 +30,20 @@ namespace Ferreteria
             {
                 configuration.RootPath = "Ferreteriapro/dist";
             });
+
+            // requires using Microsoft.Extensions.Options
+            services.Configure<dbFerreteriaDatabaseSettings>(
+                Configuration.GetSection(nameof(dbFerreteriaDatabaseSettings)));
+
+            services.AddSingleton<IdbFerreteriaDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<dbFerreteriaDatabaseSettings>>().Value);
+
+            services.AddSingleton<UsuariosServices>();
+
+            services.AddMvc()
+                .AddJsonOptions(options => options.UseMemberCasing())
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            //services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

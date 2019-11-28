@@ -41,5 +41,53 @@ export class GestionUsuarioComponent{
         });
     }
 
+
+    calculaListas() {
+        //console.log('entrando al metodo')
+
+        let listaPermisosPadre = ["CONSULTA", "OPERACION", "ADMIN", "AUTORIZA"];
+
+        let listaPermisosh1 = ["CONSULTA", "OPERACION", "ADMIN", "AUTORIZA"];
+
+        let listaPermisosh2 = ["CONSULTA", "OPERACION", "ADMIN", "AUTORIZA"];
+
+
+        console.log(listaPermisosPadre);
+        //this.remove1(listaPermisosPadre, "OPERACION");
+        //console.log(listaPermisosPadre);
+        //this.remove1(listaPermisosPadre, "OPERACION");
+        //console.log(listaPermisosPadre);
+        //listaPermisosPadre.forEach(x => {
+        //    //debugger;
+        //    listaPermisosh1.forEach(y => {
+        //        debugger;
+                
+        //        console.log(y);
+        //    });
+        //    console.log(x);
+        //});
+        const l1 = this.remove2(listaPermisosh1, "OPERACION");
+        console.log(l1);
+        const l2 = this.remove2(listaPermisosh2, "OPERACION");
+        console.log(l1);
+
+    }
+
+    remove(array, element) {
+        const index = array.indexOf(element);
+        array.splice(index, 1);
+    }
+
+    remove1(array, element) {
+        const index = array.indexOf(element);
+        if (index !== -1) {
+              array.splice(index, 1);
+          }
+      }
+
+    remove2(array, element) {
+        return array.filter(el => el !== element);
+    }
+
 }
 
