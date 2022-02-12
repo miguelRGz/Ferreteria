@@ -25,7 +25,7 @@
     "@angular/platform-browser-dynamic": "~8.2.9",
     "@angular/platform-server": "7.0.2",
     "@angular/router": "~8.2.9",
-    "ajv": "6.3.0",
+    "ajv": "6.12.3",
     "ajv-keywords": "3.1.0",
     "angular": "^1.7.8",
     "angular-calendar": "0.26.4",
